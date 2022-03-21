@@ -1,11 +1,10 @@
 package com.nordsec.locationapp.locations.data.repositories
 
-import com.google.gson.Gson
-import com.nordsec.locationapp.App
-import com.nordsec.locationapp.locations.data.Locations
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
+import com.nordsec.locationapp.locations.data.LocationDataSourceImpl
+import com.nordsec.locationapp.locations.domain.LocationsListConverter
+import com.nordsec.locationapp.locations.domain.LocationsViewState
+import com.nordsec.locationapp.rx.SchedulingStrategyFactory
+import io.reactivex.rxjava3.core.Observable
 
 
 /*
@@ -17,17 +16,25 @@ import java.io.InputStreamReader
 * The function getLocationsSortedByDistance should rerun list of location sorted by city name
 *
 */
-class LocationsRepository {
+class LocationsRepository constructor(
+    private val locationsDataSource: LocationDataSourceImpl,
+    private val locationsListConverter: LocationsListConverter,
+    private val schedulingStrategyFactory: SchedulingStrategyFactory
+) {
 
-    private val inputStream: InputStream = App.context.assets.open("data.json")
-    private val bufferReader = BufferedReader(InputStreamReader(inputStream))
-    private val locations: Locations = Gson().fromJson(bufferReader, Locations::class.java)
+    fun getLocationsSortedByCityName(): Observable<LocationsViewState> {
+        val locationDataSourceObservable =
+            locationsDataSource.getLocations().toObservable()
 
-//    fun getLocationsSortedByDistance(location: Location): Observable<Locations> {
-//        TODO return location sorted by distance of city location
-//    }
-//
-//    fun getLocationsSortedByCityName(): Observable<Locations> {
-//         TODO return location sorted by distance of city location
-//    }
+        return locationDataSourceObservable
+            .map(locationsListConverter)
+            .startWithItem(LocationsViewState.Loading)
+            .compose(schedulingStrategyFactory.create())
+    }
+
+    /*   fun getLocationsSortedByDistance(location: Location): Observable<Locations> {
+        TODO return location sorted by distance of city location
+   }*/
+
+
 }
