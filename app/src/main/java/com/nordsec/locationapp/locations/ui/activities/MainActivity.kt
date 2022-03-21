@@ -2,7 +2,6 @@ package com.nordsec.locationapp.locations.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nordsec.locationapp.R
@@ -40,11 +39,9 @@ class MainActivity : AppCompatActivity() {
             when (it) {
                 is LocationsViewState.Loading -> {
                     showApiLoadingIndicator()
-                    Log.d("vinay","loading")
                 }
                 is LocationsViewState.Success -> {
                     populateManufacturers(it.locations)
-                    Log.d("vinay","success")
                 }
             }
         }
