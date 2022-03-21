@@ -1,8 +1,10 @@
-package com.nordsec.locationapp
+package com.nordsec.locationapp.locations.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.nordsec.locationapp.R
+import com.nordsec.locationapp.locations.ui.viewmodels.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.nordsec.locationapp.data
+package com.nordsec.locationapp.locations.data
 
 import com.google.gson.annotations.SerializedName
 
