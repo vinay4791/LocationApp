@@ -1,4 +1,4 @@
-package com.nordsec.locationapp
+package com.nordsec.locationapp.locations.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 

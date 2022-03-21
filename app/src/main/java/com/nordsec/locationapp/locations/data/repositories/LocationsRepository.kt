@@ -1,9 +1,8 @@
-package com.nordsec.locationapp.repositories
+package com.nordsec.locationapp.locations.data.repositories
 
-import android.location.Location
 import com.google.gson.Gson
 import com.nordsec.locationapp.App
-import com.nordsec.locationapp.data.Locations
+import com.nordsec.locationapp.locations.data.Locations
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
