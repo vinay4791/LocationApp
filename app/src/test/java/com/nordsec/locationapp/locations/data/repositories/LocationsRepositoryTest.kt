@@ -1,5 +1,6 @@
 package com.nordsec.locationapp.locations.data.repositories
 
+import com.nordsec.locationapp.common.LocationWithDistance
 import com.nordsec.locationapp.locations.data.LocationDataSourceImpl
 import com.nordsec.locationapp.locations.data.Locations
 import com.nordsec.locationapp.locations.domain.LocationsListByDistanceConverter
@@ -33,6 +34,9 @@ class LocationsRepositoryTest {
     @Mock
     private lateinit var locations: Locations
 
+    @Mock
+    private lateinit var locationsWithDistance: List<LocationWithDistance>
+
     private lateinit var repository: LocationsRepository
 
     @Before
@@ -45,11 +49,21 @@ class LocationsRepositoryTest {
     }
 
     @Test
-    fun `should return correct movie view state when getLocationsSortedByCityName API is called`() {
+    fun `should return correct movie view state when getLocationsByName API is called`() {
         Mockito.`when`(locationDataSourceImpl.getLocationsByName()).thenReturn(
             Single.just(locations))
         Mockito.`when`(locationsListConverter.apply(locations)).thenReturn(locationsViewState)
         val observer = repository.getLocationsSortedByCityName().test()
+        observer.assertValues(LocationsViewState.Loading, locationsViewState)
+    }
+
+    @Test
+    fun `should return correct movie view state when getLocationsSortedByCityName API is called`() {
+        Mockito.`when`(locationDataSourceImpl.getLocationsByDistance("")).thenReturn(
+            Single.just(locationsWithDistance))
+        Mockito.`when`(locationsListByDistanceConverter.apply(locationsWithDistance)).
+        thenReturn(locationsViewState)
+        val observer = repository.getLocationsSortedByDistance("").test()
         observer.assertValues(LocationsViewState.Loading, locationsViewState)
     }
 
