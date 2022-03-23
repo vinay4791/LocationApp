@@ -41,7 +41,7 @@ class LocationsRepositoryTest {
 
     @Test
     fun `should return correct movie view state when getLocationsSortedByCityName API is called`() {
-        Mockito.`when`(locationDataSourceImpl.getLocations()).thenReturn(
+        Mockito.`when`(locationDataSourceImpl.getLocationsByName()).thenReturn(
             Single.just(locations))
         Mockito.`when`(locationsListConverter.apply(locations)).thenReturn(locationsViewState)
         val observer = repository.getLocationsSortedByCityName().test()

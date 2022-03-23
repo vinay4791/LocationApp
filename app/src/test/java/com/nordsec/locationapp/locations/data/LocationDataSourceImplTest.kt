@@ -27,7 +27,7 @@ class LocationDataSourceImplTest {
 
     @Test
     fun `should load location list data from utils`() {
-        val testObserver = locationDataSourceImpl.getLocations().test()
+        val testObserver = locationDataSourceImpl.getLocationsByName().test()
         testObserver.assertComplete()
         testObserver.assertValueCount(1)
     }

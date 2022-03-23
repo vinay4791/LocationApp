@@ -26,7 +26,7 @@ class LocationsRepository constructor(
 
     fun getLocationsSortedByCityName(): Observable<LocationsViewState> {
         val locationDataSourceObservable =
-            locationsDataSource.getLocations().toObservable()
+            locationsDataSource.getLocationsByName().toObservable()
 
         return locationDataSourceObservable
             .map(locationsListConverter)
@@ -34,10 +34,10 @@ class LocationsRepository constructor(
             .compose(schedulingStrategyFactory.create())
     }
 
-      /* fun getLocationsSortedByDistance(location: Location): Observable<Locations> {
-           //Todo: Get count from database instead
-
+       fun getLocationsSortedByDistance(location: Location): Observable<LocationsViewState> {
+           val locationDataSourceObservable =
+               locationsDataSource.getLocationsByDistance(location).toObservable()
+           TODO("Not yet implemented")
        }
-*/
 
 }

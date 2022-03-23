@@ -4,6 +4,8 @@ import io.reactivex.rxjava3.core.Single
 
 interface LocationsDataSource {
 
-    fun getLocations(): Single<Locations>
+    fun getLocationsByName(): Single<Locations>
+
+    fun getLocationsByDistance(location: Location): Single<Locations>
 
 }
