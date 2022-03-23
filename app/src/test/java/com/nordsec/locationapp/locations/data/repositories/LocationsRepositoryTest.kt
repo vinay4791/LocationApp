@@ -2,6 +2,7 @@ package com.nordsec.locationapp.locations.data.repositories
 
 import com.nordsec.locationapp.locations.data.LocationDataSourceImpl
 import com.nordsec.locationapp.locations.data.Locations
+import com.nordsec.locationapp.locations.domain.LocationsListByDistanceConverter
 import com.nordsec.locationapp.locations.domain.LocationsListConverter
 import com.nordsec.locationapp.locations.domain.LocationsViewState
 import com.nordsec.locationapp.rx.TestSchedulingStrategyFactory
@@ -24,6 +25,9 @@ class LocationsRepositoryTest {
     private lateinit var locationsListConverter: LocationsListConverter
 
     @Mock
+    private lateinit var locationsListByDistanceConverter: LocationsListByDistanceConverter
+
+    @Mock
     private lateinit var locationsViewState: LocationsViewState
 
     @Mock
@@ -36,6 +40,7 @@ class LocationsRepositoryTest {
         repository = LocationsRepository(
             locationDataSourceImpl,
             locationsListConverter,
+            locationsListByDistanceConverter,
             TestSchedulingStrategyFactory.immediate())
     }
 
