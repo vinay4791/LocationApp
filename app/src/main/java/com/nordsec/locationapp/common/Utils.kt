@@ -2,7 +2,6 @@ package com.nordsec.locationapp.common
 
 import com.google.gson.Gson
 import com.nordsec.locationapp.App
-import com.nordsec.locationapp.locations.data.Location
 import com.nordsec.locationapp.locations.data.Locations
 import java.io.BufferedReader
 import java.io.InputStream
@@ -16,7 +15,7 @@ class Utils {
         return Gson().fromJson(bufferReader, Locations::class.java)
     }
 
-    fun getLocationListSortedWithSelectedLocation(location: Location): Locations {
+    fun getLocationListSortedWithSelectedLocation(location: String): Locations {
         TODO("Not yet implemented")
     }
 

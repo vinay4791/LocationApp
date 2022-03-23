@@ -10,7 +10,7 @@ class LocationDataSourceImpl constructor(private val utils: Utils) : LocationsDa
        return Single.just(utils.getLocationsList())
     }
 
-    override fun getLocationsByDistance(location: Location): Single<Locations> {
+    override fun getLocationsByDistance(location: String): Single<Locations> {
         return Single.just(utils.getLocationListSortedWithSelectedLocation(location))
         TODO("Not yet implemented")
     }

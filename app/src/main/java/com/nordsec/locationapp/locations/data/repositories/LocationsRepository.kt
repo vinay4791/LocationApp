@@ -1,8 +1,6 @@
 package com.nordsec.locationapp.locations.data.repositories
 
-import com.nordsec.locationapp.locations.data.Location
 import com.nordsec.locationapp.locations.data.LocationDataSourceImpl
-import com.nordsec.locationapp.locations.data.Locations
 import com.nordsec.locationapp.locations.domain.LocationsListConverter
 import com.nordsec.locationapp.locations.domain.LocationsViewState
 import com.nordsec.locationapp.rx.SchedulingStrategyFactory
@@ -34,7 +32,7 @@ class LocationsRepository constructor(
             .compose(schedulingStrategyFactory.create())
     }
 
-       fun getLocationsSortedByDistance(location: Location): Observable<LocationsViewState> {
+       fun getLocationsSortedByDistance(location: String): Observable<LocationsViewState> {
            val locationDataSourceObservable =
                locationsDataSource.getLocationsByDistance(location).toObservable()
            TODO("Not yet implemented")

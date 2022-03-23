@@ -10,6 +10,9 @@ class GenericItemViewHolderEven(
 
     override fun bind(locationKey: String) {
         itemBinding.itemTv.text = locationKey
+        itemBinding.genericItemParentLayout.setOnClickListener {
+            listener.itemSelected(locationKey)
+        }
     }
 
 }

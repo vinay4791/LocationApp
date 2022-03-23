@@ -2,7 +2,6 @@ package com.nordsec.locationapp.locations.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 detailViewModel.getLocationsSortedByCityName()
             }
             R.id.action_by_distance -> {
-                detailViewModel.getLocationsSortedByDistance()
+               // detailViewModel.getLocationsSortedByDistance()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -75,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = locationsAdapter
         }
+        locationsAdapter.setListener(listener)
     }
 
     private fun populateManufacturers(locations: List<LocationDomainModel>) {
@@ -89,6 +89,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideApiLoadingIndicator() {
         binding.loadingView.hideLoading()
+    }
+
+    private val listener = object : LocationsAdapter.Listener {
+        override fun itemSelected(locationKey: String) {
+            detailViewModel.getLocationsSortedByDistance(locationKey)
+        }
+
     }
 
 }

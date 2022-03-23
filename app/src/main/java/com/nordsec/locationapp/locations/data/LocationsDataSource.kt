@@ -6,6 +6,6 @@ interface LocationsDataSource {
 
     fun getLocationsByName(): Single<Locations>
 
-    fun getLocationsByDistance(location: Location): Single<Locations>
+    fun getLocationsByDistance(location: String): Single<Locations>
 
 }

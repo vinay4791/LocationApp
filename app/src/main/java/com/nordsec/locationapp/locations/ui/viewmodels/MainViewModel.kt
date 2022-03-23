@@ -3,7 +3,6 @@ package com.nordsec.locationapp.locations.ui.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.nordsec.locationapp.locations.data.Location
 import com.nordsec.locationapp.locations.data.repositories.LocationsRepository
 import com.nordsec.locationapp.locations.domain.LocationsViewState
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -32,7 +31,7 @@ class MainViewModel constructor(private val repository: LocationsRepository) : V
 
     }
 
-    fun getLocationsSortedByDistance(location: Location) {
+    fun getLocationsSortedByDistance(location: String) {
         disposable.add(
             repository.getLocationsSortedByDistance(location)
                 .subscribe({ response ->
