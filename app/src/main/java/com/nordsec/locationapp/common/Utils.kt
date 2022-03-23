@@ -2,6 +2,8 @@ package com.nordsec.locationapp.common
 
 import com.google.gson.Gson
 import com.nordsec.locationapp.App
+import com.nordsec.locationapp.common.Constants.EMPTY_FLOAT
+import com.nordsec.locationapp.common.Constants.EMPTY_STRING
 import com.nordsec.locationapp.locations.data.Location
 import com.nordsec.locationapp.locations.data.Locations
 import java.io.BufferedReader
@@ -19,7 +21,7 @@ class Utils {
     fun getLocationListSortedWithSelectedLocation(locationKey: String): List<LocationWithDistance> {
         val locationList = getLocationsList().location
         val locationListToBeSorted = mutableListOf<Location>()
-        var selectedLocation = Location("", 0F, 0F)
+        var selectedLocation = Location(EMPTY_STRING, EMPTY_FLOAT, EMPTY_FLOAT)
 
         for (location in locationList) {
             if (location.city == locationKey) {
