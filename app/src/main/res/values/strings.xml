@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LocationApp</string>
+    <string name="sort_by_name_txt">Sort By Name</string>
+    <string name="sort_by_distance_txt">Sort By Distance</string>
 </resources>

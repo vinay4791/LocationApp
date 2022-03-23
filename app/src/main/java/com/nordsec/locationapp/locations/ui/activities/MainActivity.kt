@@ -2,6 +2,8 @@ package com.nordsec.locationapp.locations.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nordsec.locationapp.R
@@ -12,6 +14,9 @@ import com.nordsec.locationapp.locations.ui.adapter.LocationsAdapter
 import com.nordsec.locationapp.locations.ui.viewmodels.MainViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
+import android.view.MenuItem
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,6 +50,24 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_by_name -> {
+                Log.d("vinay","action_by_name")
+            }
+            R.id.action_by_distance -> {
+                Log.d("vinay","action_by_distance")
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setUpLocationsRecyclerView() {
