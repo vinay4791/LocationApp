@@ -15,6 +15,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import android.view.MenuItem
+import com.nordsec.locationapp.common.Utils
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initialise()
+
+        Utils().getLocationListSortedWithSelectedLocation("New York")
     }
 
     private fun initialise(){
@@ -61,9 +64,6 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.action_by_name -> {
                 detailViewModel.getLocationsSortedByCityName()
-            }
-            R.id.action_by_distance -> {
-               // detailViewModel.getLocationsSortedByDistance()
             }
         }
         return super.onOptionsItemSelected(item)

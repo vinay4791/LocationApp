@@ -3,6 +3,7 @@ package com.nordsec.locationapp.locations.di
 import com.nordsec.locationapp.locations.data.LocationDataSourceImpl
 import com.nordsec.locationapp.locations.domain.LocationsListConverter
 import com.nordsec.locationapp.locations.data.repositories.LocationsRepository
+import com.nordsec.locationapp.locations.domain.LocationsListByDistanceConverter
 import com.nordsec.locationapp.locations.ui.adapter.LocationsAdapter
 import com.nordsec.locationapp.rx.AndroidSchedulingStrategyFactory
 import com.nordsec.locationapp.locations.ui.viewmodels.MainViewModel
@@ -25,7 +26,12 @@ val locationListModule = module {
     }
 
     factory {
+        LocationsListByDistanceConverter()
+    }
+
+    factory {
         LocationsRepository(
+            get(),
             get(),
             get(),
             AndroidSchedulingStrategyFactory.io()

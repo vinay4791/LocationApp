@@ -1,5 +1,6 @@
 package com.nordsec.locationapp.locations.data
 
+import com.nordsec.locationapp.common.LocationWithDistance
 import com.nordsec.locationapp.common.Utils
 import io.reactivex.rxjava3.core.Single
 
@@ -10,8 +11,7 @@ class LocationDataSourceImpl constructor(private val utils: Utils) : LocationsDa
        return Single.just(utils.getLocationsList())
     }
 
-    override fun getLocationsByDistance(location: String): Single<Locations> {
+    override fun getLocationsByDistance(location: String): Single<List<LocationWithDistance>> {
         return Single.just(utils.getLocationListSortedWithSelectedLocation(location))
-        TODO("Not yet implemented")
     }
 }
