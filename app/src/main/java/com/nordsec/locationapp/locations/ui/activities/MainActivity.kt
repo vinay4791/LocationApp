@@ -2,7 +2,6 @@ package com.nordsec.locationapp.locations.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +15,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import android.view.MenuItem
+import com.nordsec.locationapp.common.Utils
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initialise()
+
+        Utils().getLocationListSortedWithSelectedLocation("New York")
     }
 
     private fun initialise(){
@@ -61,10 +63,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_by_name -> {
-                Log.d("vinay","action_by_name")
-            }
-            R.id.action_by_distance -> {
-                Log.d("vinay","action_by_distance")
+                detailViewModel.getLocationsSortedByCityName()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -75,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = locationsAdapter
         }
+        locationsAdapter.setListener(listener)
     }
 
     private fun populateManufacturers(locations: List<LocationDomainModel>) {
@@ -89,6 +89,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideApiLoadingIndicator() {
         binding.loadingView.hideLoading()
+    }
+
+    private val listener = object : LocationsAdapter.Listener {
+        override fun itemSelected(locationKey: String) {
+            detailViewModel.getLocationsSortedByDistance(locationKey)
+        }
+
     }
 
 }

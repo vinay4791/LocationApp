@@ -31,15 +31,25 @@ class MainViewModel constructor(private val repository: LocationsRepository) : V
 
     }
 
+    fun getLocationsSortedByDistance(location: String) {
+        disposable.add(
+            repository.getLocationsSortedByDistance(location)
+                .subscribe({ response ->
+                    _locationListData.postValue(response)
+                },
+                    { error ->
+
+                    })
+        )
+    }
+
     override fun onCleared() {
         super.onCleared()
         disposable.clear()
     }
 
 
-//    fun getLocationsSortedByDistance() {
-//
-//    }
-//
+
+
 
 }

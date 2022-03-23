@@ -35,7 +35,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `should emit locations list view state when fetchReviewList is fetched`() {
+    fun `should emit locations list view state when getLocationsSortedByCityName is fetched`() {
         Mockito.`when`(repository.getLocationsSortedByCityName()).thenReturn(
             Observable.just(
                 locationsViewState
@@ -43,6 +43,18 @@ class MainViewModelTest {
         )
         val responseObserver = mainViewModel.locationListData.testObserver()
         mainViewModel.getLocationsSortedByCityName()
+        Truth.assertThat(responseObserver.observedValues).isEqualTo(listOf(locationsViewState))
+    }
+
+    @Test
+    fun `should emit locations list view state when getLocationsSortedByDistance is fetched`() {
+        Mockito.`when`(repository.getLocationsSortedByDistance("")).thenReturn(
+            Observable.just(
+                locationsViewState
+            )
+        )
+        val responseObserver = mainViewModel.locationListData.testObserver()
+        mainViewModel.getLocationsSortedByDistance("")
         Truth.assertThat(responseObserver.observedValues).isEqualTo(listOf(locationsViewState))
     }
 
