@@ -26,8 +26,11 @@ Business logic and conversions are completely unit tested using junit and mockit
 
 All the colors are taken from Google Material Design Color Palette. https://material.io/design/color/the-color-system.html#color-usage-and-palettes
 
-#Design Some Gradients are added to make the rows look beautiful. Odd and even rows are properly designed with different Viewtypes in recycler view. 
+#Design 
+Some Gradients are added to make the rows look beautiful. Odd and even rows are properly designed with different Viewtypes in recycler view. 
 
-#Domain Layer To make the things simple, haven't used a domain layer usecase.
+#Domain Layer
+To make the things simple, haven't used a domain layer usecase.
+
 
 
