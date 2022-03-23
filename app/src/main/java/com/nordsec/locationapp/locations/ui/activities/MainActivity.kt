@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initialise()
-
-        Utils().getLocationListSortedWithSelectedLocation("New York")
     }
 
     private fun initialise(){
