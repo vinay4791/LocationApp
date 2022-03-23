@@ -1,6 +1,8 @@
 package com.nordsec.locationapp.locations.data.repositories
 
+import com.nordsec.locationapp.locations.data.Location
 import com.nordsec.locationapp.locations.data.LocationDataSourceImpl
+import com.nordsec.locationapp.locations.data.Locations
 import com.nordsec.locationapp.locations.domain.LocationsListConverter
 import com.nordsec.locationapp.locations.domain.LocationsViewState
 import com.nordsec.locationapp.rx.SchedulingStrategyFactory
@@ -32,9 +34,10 @@ class LocationsRepository constructor(
             .compose(schedulingStrategyFactory.create())
     }
 
-    /*   fun getLocationsSortedByDistance(location: Location): Observable<Locations> {
-        TODO return location sorted by distance of city location
-   }*/
+      /* fun getLocationsSortedByDistance(location: Location): Observable<Locations> {
+           //Todo: Get count from database instead
 
+       }
+*/
 
 }

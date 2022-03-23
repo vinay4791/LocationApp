@@ -31,15 +31,17 @@ class MainViewModel constructor(private val repository: LocationsRepository) : V
 
     }
 
+    fun getLocationsSortedByDistance() {
+
+    }
+
     override fun onCleared() {
         super.onCleared()
         disposable.clear()
     }
 
 
-//    fun getLocationsSortedByDistance() {
-//
-//    }
-//
+
+
 
 }

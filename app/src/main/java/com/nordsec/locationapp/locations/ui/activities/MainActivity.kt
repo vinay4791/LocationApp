@@ -61,10 +61,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_by_name -> {
-                Log.d("vinay","action_by_name")
+                detailViewModel.getLocationsSortedByCityName()
             }
             R.id.action_by_distance -> {
-                Log.d("vinay","action_by_distance")
+                detailViewModel.getLocationsSortedByDistance()
             }
         }
         return super.onOptionsItemSelected(item)
