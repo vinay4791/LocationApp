@@ -25,9 +25,6 @@ The Datasource is abstracted and its implementation is used for fetching data in
 This is done to make the unit testing of the datalayer with Mock easier.
 
 
-#Orientation
-The App will work in potrait and landscape mode flawlessly.
-
 #Colors
 
 All the colors are taken from Google Material Design Color Palette. https://material.io/design/color/the-color-system.html#color-usage-and-palettes
