@@ -7,4 +7,9 @@
         android:title="@string/sort_by_name_txt"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_by_distance"
+        android:title="@string/sort_by_distance_txt"
+        app:showAsAction="never" />
+
 </menu>

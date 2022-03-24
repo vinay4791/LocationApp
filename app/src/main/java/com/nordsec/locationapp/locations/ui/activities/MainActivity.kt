@@ -15,6 +15,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import android.view.MenuItem
+import com.nordsec.locationapp.common.Constants.NEW_YORK_STRING
 import com.nordsec.locationapp.common.Utils
 
 
@@ -62,6 +63,9 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.action_by_name -> {
                 detailViewModel.getLocationsSortedByCityName()
+            }
+            R.id.action_by_distance -> {
+                detailViewModel.getLocationsSortedByDistance(NEW_YORK_STRING)
             }
         }
         return super.onOptionsItemSelected(item)

@@ -14,13 +14,14 @@ MVVM  with Clean Architecture is used
 
 Implementation is done based on https://developer.android.com/codelabs/kotlin-android-training-repository#5
 
-
 Dependency injection :
 Koin is used for dependency injection because it works amazingly well with Kotlin.
 
 Unit Testing :
 Business logic and conversions are completely unit tested using junit and mockito.
 
+#Orientation
+The App will work in potrait and landscape mode flawlessly.
 
 #Colors
 
