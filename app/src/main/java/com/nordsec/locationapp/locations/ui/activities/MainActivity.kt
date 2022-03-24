@@ -16,8 +16,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import android.view.MenuItem
 import com.nordsec.locationapp.common.Constants.NEW_YORK_STRING
-import com.nordsec.locationapp.common.Utils
-
 
 class MainActivity : AppCompatActivity() {
 
