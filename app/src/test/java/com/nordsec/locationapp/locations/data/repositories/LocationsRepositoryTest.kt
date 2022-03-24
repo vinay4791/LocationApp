@@ -1,7 +1,7 @@
 package com.nordsec.locationapp.locations.data.repositories
 
-import com.nordsec.locationapp.common.LocationWithDistance
 import com.nordsec.locationapp.locations.data.LocationDataSourceImpl
+import com.nordsec.locationapp.locations.data.LocationWithDistance
 import com.nordsec.locationapp.locations.data.Locations
 import com.nordsec.locationapp.locations.domain.LocationsListByDistanceConverter
 import com.nordsec.locationapp.locations.domain.LocationsListConverter

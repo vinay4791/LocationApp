@@ -1,8 +1,8 @@
 package com.nordsec.locationapp.locations.domain
 
 import com.google.common.truth.Truth
-import com.nordsec.locationapp.common.LocationWithDistance
 import com.nordsec.locationapp.locations.data.Location
+import com.nordsec.locationapp.locations.data.LocationWithDistance
 import org.junit.Before
 import org.junit.Test
 

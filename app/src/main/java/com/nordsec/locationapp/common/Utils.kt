@@ -5,6 +5,7 @@ import com.nordsec.locationapp.App
 import com.nordsec.locationapp.common.Constants.EMPTY_FLOAT
 import com.nordsec.locationapp.common.Constants.EMPTY_STRING
 import com.nordsec.locationapp.locations.data.Location
+import com.nordsec.locationapp.locations.data.LocationWithDistance
 import com.nordsec.locationapp.locations.data.Locations
 import java.io.BufferedReader
 import java.io.InputStream
@@ -69,4 +70,3 @@ class Utils {
 
 }
 
-data class LocationWithDistance(val location: Location, val distance: Double)

@@ -1,6 +1,5 @@
 package com.nordsec.locationapp.locations.data
 
-import com.nordsec.locationapp.common.LocationWithDistance
 import io.reactivex.rxjava3.core.Single
 
 interface LocationsDataSource {
